@@ -1,0 +1,134 @@
+<html>
+	<head>
+  	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name ="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta charset="utf-8"/>
+		<link type="text/css" href="stylesheets/test.css" rel="stylesheet"><link>
+	</head>
+	<body>
+	<div id="board">
+		<div id="one">
+			<div id="A" class="border left top">
+				<input type="tel" id="A1" maxlength="1" placeholder="9" readonly="true" onfocus="addSelect()" onblur="removeSelected()" /><div style="display:none">9</div>
+				<input type="tel" id="A2" maxlength="1" placeholder="4" readonly="true" onfocus="addSelect()" onblur="removeSelected()" disabled="disabled" value="4"/>
+				<input type="tel" id="A3" maxlength="1" placeholder="6" readonly="true" onfocus="addSelect()" onblur="removeSelected()" disabled="disabled" value="6"/>
+				<input type="tel" id="A4" maxlength="1" placeholder="8" readonly="true" onfocus="addSelect()" onblur="removeSelected()" disabled="disabled" value="8"/>
+				<input type="tel" id="A5" maxlength="1" placeholder="1" readonly="true" onfocus="addSelect()" onblur="removeSelected()" /><div style="display:none">12</div>
+				<input type="tel" id="A6" maxlength="1" placeholder="2" readonly="true" onfocus="addSelect()" onblur="removeSelected()" /><div style="display:none">12</div>
+				<input type="tel" id="A7" maxlength="1" placeholder="5" readonly="true" onfocus="addSelect()" onblur="removeSelected()" disabled="disabled" value="5"/>
+				<input type="tel" id="A8" maxlength="1" placeholder="3" readonly="true" onfocus="addSelect()" onblur="removeSelected()" disabled="disabled" value="3"/>
+				<input type="tel" id="A9" maxlength="1" placeholder="7" readonly="true" onfocus="addSelect()" onblur="removeSelected()" /><div style="display:none">79</div>
+			</div>
+			<div id="B" class="border top">
+				<input type="tel" id="B1" maxlength="1" placeholder="7" readonly="true" onfocus="addSelect()" onblur="removeSelected()" disabled="disabled" value="7"/>
+				<input type="tel" id="B2" maxlength="1" placeholder="8" readonly="true" onfocus="addSelect()" onblur="removeSelected()" disabled="disabled" value="8"/>
+				<input type="tel" id="B3" maxlength="1" placeholder="3" readonly="true" onfocus="addSelect()" onblur="removeSelected()" disabled="disabled" value="3"/>
+				<input type="tel" id="B4" maxlength="1" placeholder="9" readonly="true" onfocus="addSelect()" onblur="removeSelected()" disabled="disabled" value="9"/>
+				<input type="tel" id="B5" maxlength="1" placeholder="5" readonly="true" onfocus="addSelect()" onblur="removeSelected()" disabled="disabled" value="5"/>
+				<input type="tel" id="B6" maxlength="1" placeholder="6" readonly="true" onfocus="addSelect()" onblur="removeSelected()"/><div style="display:none">6</div>
+				<input type="tel" id="B7" maxlength="1" placeholder="1" readonly="true" onfocus="addSelect()" onblur="removeSelected()" disabled="disabled" value="1"/>
+				<input type="tel" id="B8" maxlength="1" placeholder="4" readonly="true" onfocus="addSelect()" onblur="removeSelected()" disabled="disabled" value="4"/>
+				<input type="tel" id="B9" maxlength="1" placeholder="2" readonly="true" onfocus="addSelect()" onblur="removeSelected()" disabled="disabled" value="2"/>
+			</div>
+			<div id="C" class="border right top">
+				<input type="tel" id="C1" maxlength="1" placeholder="5" readonly="true" onfocus="addSelect()" onblur="removeSelected()"/><div style="display:none">159</div>
+				<input type="tel" id="C2" maxlength="1" placeholder="1" readonly="true" onfocus="addSelect()" onblur="removeSelected()"/><div style="display:none">1</div>
+				<input type="tel" id="C3" maxlength="1" placeholder="2" readonly="true" onfocus="addSelect()" onblur="removeSelected()" disabled="disabled" value="2"/>
+				<input type="tel" id="C4" maxlength="1" placeholder="7" readonly="true" onfocus="addSelect()" onblur="removeSelected()" disabled="disabled" value="7"/>
+				<input type="tel" id="C5" maxlength="1" placeholder="3" readonly="true" onfocus="addSelect()" onblur="removeSelected()" disabled="disabled" value="3"/>
+				<input type="tel" id="C6" maxlength="1" placeholder="4" readonly="true" onfocus="addSelect()" onblur="removeSelected()" disabled="disabled" value="4"/>
+				<input type="tel" id="C7" maxlength="1" placeholder="9" readonly="true" onfocus="addSelect()" onblur="removeSelected()"/><div style="display:none">9</div>
+				<input type="tel" id="C8" maxlength="1" placeholder="8" readonly="true" onfocus="addSelect()" onblur="removeSelected()" disabled="disabled" value="8"/>
+				<input type="tel" id="C9" maxlength="1" placeholder="6" readonly="true" onfocus="addSelect()" onblur="removeSelected()"/><div style="display:none">69</div>
+			</div>
+		</div>
+		<div id="two">
+			<div id="D" class="border left">
+				<input type="tel" id="D1" maxlength="1" placeholder="1" readonly="true" onfocus="addSelect()" onblur="removeSelected()" disabled="disabled" value="1"/>
+				<input type="tel" id="D2" maxlength="1" placeholder="9" readonly="true" onfocus="addSelect()" onblur="removeSelected()" disabled="disabled" value="9"/>
+				<input type="tel" id="D3" maxlength="1" placeholder="5" readonly="true" onfocus="addSelect()" onblur="removeSelected()" disabled="disabled" value="5"/>
+				<input type="tel" id="D4" maxlength="1" placeholder="7" readonly="true" onfocus="addSelect()" onblur="removeSelected()" disabled="disabled" value="7"/>
+				<input type="tel" id="D5" maxlength="1" placeholder="8" readonly="true" onfocus="addSelect()" onblur="removeSelected()" disabled="disabled" value="8"/>
+				<input type="tel" id="D6" maxlength="1" placeholder="3" readonly="true" onfocus="addSelect()" onblur="removeSelected()" disabled="disabled" value="3"/>
+				<input type="tel" id="D7" maxlength="1" placeholder="6" readonly="true" onfocus="addSelect()" onblur="removeSelected()" disabled="disabled" value="6"/>
+				<input type="tel" id="D8" maxlength="1" placeholder="2" readonly="true" onfocus="addSelect()" onblur="removeSelected()"/><div style="display:none">2</div>
+				<input type="tel" id="D9" maxlength="1" placeholder="4" readonly="true" onfocus="addSelect()" onblur="removeSelected()" disabled="disabled" value="4"/>
+			</div>
+			<div id="E" class="border center">
+				<input type="tel" id="E1" maxlength="1" placeholder="6" readonly="true" onfocus="addSelect()" onblur="removeSelected()" disabled="disabled" value="6"/>
+				<input type="tel" id="E2" maxlength="1" placeholder="7" readonly="true" onfocus="addSelect()" onblur="removeSelected()" disabled="disabled" value="7"/>
+				<input type="tel" id="E3" maxlength="1" placeholder="8" readonly="true" onfocus="addSelect()" onblur="removeSelected()"/><div style="display:none">8</div>
+				<input type="tel" id="E4" maxlength="1" placeholder="4" readonly="true" onfocus="addSelect()" onblur="removeSelected()"/><div style="display:none">4</div>
+				<input type="tel" id="E5" maxlength="1" placeholder="2" readonly="true" onfocus="addSelect()" onblur="removeSelected()" disabled="disabled" value="2"/>
+				<input type="tel" id="E6" maxlength="1" placeholder="9" readonly="true" onfocus="addSelect()" onblur="removeSelected()" disabled="disabled" value="9"/>
+				<input type="tel" id="E7" maxlength="1" placeholder="3" readonly="true" onfocus="addSelect()" onblur="removeSelected()"/><div style="display:none">3</div>
+				<input type="tel" id="E8" maxlength="1" placeholder="1" readonly="true" onfocus="addSelect()" onblur="removeSelected()"/><div style="display:none">1</div>
+				<input type="tel" id="E9" maxlength="1" placeholder="5" readonly="true" onfocus="addSelect()" onblur="removeSelected()"/><div style="display:none">15</div>
+			</div>
+			<div id="F" class="border right">
+				<input type="tel" id="F1" maxlength="1" placeholder="2" readonly="true" onfocus="addSelect()" onblur="removeSelected()" disabled="disabled" value="2"/>
+				<input type="tel" id="F2" maxlength="1" placeholder="4" readonly="true" onfocus="addSelect()" onblur="removeSelected()" disabled="disabled" value="4"/>
+				<input type="tel" id="F3" maxlength="1" placeholder="3" readonly="true" onfocus="addSelect()" onblur="removeSelected()" disabled="disabled" value="3"/>
+				<input type="tel" id="F4" maxlength="1" placeholder="6" readonly="true" onfocus="addSelect()" onblur="removeSelected()" disabled="disabled" value="6"/>
+				<input type="tel" id="F5" maxlength="1" placeholder="5" readonly="true" onfocus="addSelect()" onblur="removeSelected()" disabled="disabled" value="5"/>
+				<input type="tel" id="F6" maxlength="1" placeholder="1" readonly="true" onfocus="addSelect()" onblur="removeSelected()" disabled="disabled" value="1"/>
+				<input type="tel" id="F7" maxlength="1" placeholder="8" readonly="true" onfocus="addSelect()" onblur="removeSelected()" disabled="disabled" value="8"/>
+				<input type="tel" id="F8" maxlength="1" placeholder="9" readonly="true" onfocus="addSelect()" onblur="removeSelected()" disabled="disabled" value="9"/>
+				<input type="tel" id="F9" maxlength="1" placeholder="7" readonly="true" onfocus="addSelect()" onblur="removeSelected()"/><div style="display:none">7</div>
+			</div>
+		</div>
+		<div id="three">
+			<div id="G" class="border left bottom">
+				<input type="tel" id="G1" maxlength="1" placeholder="4" readonly="true" onfocus="addSelect()" onblur="removeSelected()" disabled="disabled" value="4"/>
+				<input type="tel" id="G2" maxlength="1" placeholder="6" readonly="true" onfocus="addSelect()" onblur="removeSelected()"/><div style="display:none">16</div>
+				<input type="tel" id="G3" maxlength="1" placeholder="9" readonly="true" onfocus="addSelect()" onblur="removeSelected()"/><div style="display:none">19</div>
+				<input type="tel" id="G4" maxlength="1" placeholder="2" readonly="true" onfocus="addSelect()" onblur="removeSelected()" disabled="disabled" value="2"/>
+				<input type="tel" id="G5" maxlength="1" placeholder="7" readonly="true" onfocus="addSelect()" onblur="removeSelected()"/><div style="display:none">167</div>
+				<input type="tel" id="G6" maxlength="1" placeholder="1" readonly="true" onfocus="addSelect()" onblur="removeSelected()"/><div style="display:none">179</div>
+				<input type="tel" id="G7" maxlength="1" placeholder="3" readonly="true" onfocus="addSelect()" onblur="removeSelected()" disabled="disabled" value="3"/>
+				<input type="tel" id="G8" maxlength="1" placeholder="5" readonly="true" onfocus="addSelect()" onblur="removeSelected()" disabled="disabled" value="5"/>
+				<input type="tel" id="G9" maxlength="1" placeholder="8" readonly="true" onfocus="addSelect()" onblur="removeSelected()" disabled="disabled" value="8"/>
+			</div>
+			<div id="H" class="border bottom">
+				<input type="tel" id="H1" maxlength="1" placeholder="5" readonly="true" onfocus="addSelect()" onblur="removeSelected()" disabled="disabled" value="5"/>
+				<input type="tel" id="H2" maxlength="1" placeholder="3" readonly="true" onfocus="addSelect()" onblur="removeSelected()" disabled="disabled" value="3"/>
+				<input type="tel" id="H3" maxlength="1" placeholder="7" readonly="true" onfocus="addSelect()" onblur="removeSelected()" disabled="disabled" value="7"/>
+				<input type="tel" id="H4" maxlength="1" placeholder="8" readonly="true" onfocus="addSelect()" onblur="removeSelected()"/><div style="display:none">48</div>
+				<input type="tel" id="H5" maxlength="1" placeholder="9" readonly="true" onfocus="addSelect()" onblur="removeSelected()"/><div style="display:none">169</div>
+				<input type="tel" id="H6" maxlength="1" placeholder="4" readonly="true" onfocus="addSelect()" onblur="removeSelected()"/><div style="display:none">1468</div>
+				<input type="tel" id="H7" maxlength="1" placeholder="2" readonly="true" onfocus="addSelect()" onblur="removeSelected()" disabled="disabled" value="2"/>
+				<input type="tel" id="H8" maxlength="1" placeholder="6" readonly="true" onfocus="addSelect()" onblur="removeSelected()"/><div style="display:none">169</div>
+				<input type="tel" id="H9" maxlength="1" placeholder="1" readonly="true" onfocus="addSelect()" onblur="removeSelected()"/><div style="display:none">16</div>
+			</div>
+			<div id="I" class="border right bottom">
+				<input type="tel" id="I1" maxlength="1" placeholder="1" readonly="true" onfocus="addSelect()" onblur="removeSelected()"/><div style="display:none">19</div>
+				<input type="tel" id="I2" maxlength="1" placeholder="2" readonly="true" onfocus="addSelect()" onblur="removeSelected()"/><div style="display:none">126</div>
+				<input type="tel" id="I3" maxlength="1" placeholder="8" readonly="true" onfocus="addSelect()" onblur="removeSelected()" disabled="disabled" value="8"/>
+				<input type="tel" id="I4" maxlength="1" placeholder="3" readonly="true" onfocus="addSelect()" onblur="removeSelected()" disabled="disabled" value="3"/>
+				<input type="tel" id="I5" maxlength="1" placeholder="6" readonly="true" onfocus="addSelect()" onblur="removeSelected()"/><div style="display:none">16</div>
+				<input type="tel" id="I6" maxlength="1" placeholder="5" readonly="true" onfocus="addSelect()" onblur="removeSelected()" disabled="disabled" value="5"/>
+				<input type="tel" id="I7" maxlength="1" placeholder="4" readonly="true" onfocus="addSelect()" onblur="removeSelected()" disabled="disabled" value="4"/>
+				<input type="tel" id="I8" maxlength="1" placeholder="7" readonly="true" onfocus="addSelect()" onblur="removeSelected()" disabled="disabled" value="7"/>
+				<input type="tel" id="I9" maxlength="1" placeholder="9" readonly="true" onfocus="addSelect()" onblur="removeSelected()"/><div style="display:none">69</div>
+			</div>
+		</div>
+	</div>
+	<div id="buttons">
+		<ul>
+			<li><a href="#" id="button1" onmousedown="preventFocus()" onclick="changeValue(1)">1</a></li>
+			<li><a href="#" id="button2" onmousedown="preventFocus()" onclick="changeValue(2)">2</a></li>
+			<li><a href="#" id="button3" onmousedown="preventFocus()" onclick="changeValue(3)">3</a></li>
+			<li><a href="#" id="button4" onmousedown="preventFocus()" onclick="changeValue(4)">4</a></li>
+			<li><a href="#" id="button5" onmousedown="preventFocus()" onclick="changeValue(5)">5</a></li>
+			<li><a href="#" id="button6" onmousedown="preventFocus()" onclick="changeValue(6)">6</a></li>
+			<li><a href="#" id="button7" onmousedown="preventFocus()" onclick="changeValue(7)">7</a></li>
+			<li><a href="#" id="button8" onmousedown="preventFocus()" onclick="changeValue(8)">8</a></li>
+			<li><a href="#" id="button9" onmousedown="preventFocus()" onclick="changeValue(9)">9</a></li>
+		</ul>
+	</div>
+  <script src='javascripts/vendor/jquery-1.3.2.js'></script>
+  <script src='javascripts/testScript.js'></script>	
+	</body>
+</html>
