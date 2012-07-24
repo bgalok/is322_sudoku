@@ -46,6 +46,15 @@ function focus() {
     $(LastFocus).focus();
     //$(LastFocus).addClass('selected');
 }
+function getBoardState(){
+	/*$("input").each(function(){
+		if(!isNaN(this.value))
+			CellValues.push(this.value);
+	});*/
+}
+function resetBoard(){
+	$(":enabled").val("");
+}
 $(focus);
 $(function() {
     $(document.body).load(focus);
@@ -58,4 +67,42 @@ $(function() {
     $('#button7').mouseup(focus);
     $('#button8').mouseup(focus);
     $('#button9').mouseup(focus);
+});
+$(function(){	
+	//-----------------------------------------------------------------------
+	//monitor accelerometer for shake events
+	//----------------------------------------------------------------------
+	var lastX, lastY, lastZ, lastShake = new Date().getTime(), threshold = 10;
+  $(window).bind("devicemotion", function(e){
+    var motionEvent = e.originalEvent,
+				accel = motionEvent.accelerationIncludingGravity,
+        x = accel.x,
+        y = accel.y,
+        z =  accel.z;
+    $("#x").html("x:" + x);
+    $("#y").html("y:" + y);
+    $("#z").html("z:" + z);
+    
+    if(lastX !== null && lastY !== null &&  lastZ !== null) {
+      var diffX = Math.abs(x - lastX),
+          diffY = Math.abs(y - lastY),
+          diffZ = Math.abs(z - lastZ);   
+      if (diffX > threshold && diffY > threshold |diffX > threshold && diffZ > threshold || diffY > threshold && diffZ > threshold) {
+        var now = new Date().getTime(),
+            diffTime = now - lastShake;
+        if (diffTime > 500) {
+          //confirm("Reset the Board?");
+					//var r=confirm("Press a button!");
+					if(confirm("Reset the current Board?")){
+  					resetBoard();
+  				}
+          //$("#status").html("Skaken!");
+          lastShake = now;
+        }
+      }
+    }
+    lastX = x;
+    lastY = y;
+    lastZ = z;
+  });
 });
