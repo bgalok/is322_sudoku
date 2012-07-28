@@ -53,7 +53,7 @@ function getBoardState(){
 	});*/
 }
 function resetBoard(){
-	$(":enabled").val("");
+	$("input:enabled").val("");
 }
 $(focus);
 $(function() {
