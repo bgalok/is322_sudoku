@@ -55,11 +55,31 @@ function getBoardState(){
 function resetBoard(){
 	$("input:enabled").val("");
 }
+function check(){
+	var solution = ["9", "1", "2", "7", "6", "5", "1", "9", "6", "2", "8", "4", "3", "1", "5", "7", "6", "9", "7", "1", "8", "9", "4", "6", "1", "1", "2", "6", "9"];
+	var current_vals = [];
+	$("input:enabled").each(function(){
+  	current_vals.push($(this).val());
+  });
+	status=true;
+	i=0;
+	for(i=0; i<solution.length; i++){
+		if(solution[i]==current_vals[i]){
+			status=true;
+		}
+		else{
+			status=false;
+			break;
+		}
+	}
+	if(status){alert("Solved");}
+	else {alert("Incorrect");}
+}
 $(focus);
 $(function() {
     $(document.body).load(focus);
     $('#button1').mouseup(focus);
-    $('#button2').mouseup(focus);
+		$('#button2').mouseup(focus);
     $('#button3').mouseup(focus);
     $('#button4').mouseup(focus);
     $('#button5').mouseup(focus);
@@ -67,6 +87,7 @@ $(function() {
     $('#button7').mouseup(focus);
     $('#button8').mouseup(focus);
     $('#button9').mouseup(focus);
+		$("#Options").click(check);
 });
 $(function(){	
 	//-----------------------------------------------------------------------
