@@ -61,7 +61,7 @@ function check(){
 	$("input:enabled").each(function(){
   	current_vals.push($(this).val());
   });
-	status=true;
+	var status=true;
 	i=0;
 	for(i=0; i<solution.length; i++){
 		if(solution[i]==current_vals[i]){
@@ -72,7 +72,7 @@ function check(){
 			break;
 		}
 	}
-	if(status){alert("Solved");}
+	if(status) {alert("Solved");}
 	else {alert("Incorrect");}
 }
 $(focus);
