@@ -127,3 +127,27 @@ $(function(){
     lastZ = z;
   });
 });
+
+$(document).ready(function(){
+	$.getJSON("data/boards.json", function(data){
+    // Got JSON, now template it!
+    var puzzleID = Math.floor(Math.random()*1);
+	var puzzle = data[puzzleID].initValues;
+	
+	var cnt =0;
+	for(var BoxCode = 65; BoxCode <= 74; BoxCode++){
+		var Box = String.fromCharCode(BoxCode);
+		console.log(Box);
+		for(var pos=1; pos <=9 ; pos++){
+			var value = puzzle.substr(cnt,1);
+			if(value > 0 && value <10){
+			  $("#" + Box + pos).val(value);
+			  console.log("Box: " + Box + ", Pos: " + pos + ", Value: " + puzzle.substr(cnt,1));
+			  $("#" + Box + pos).attr('disabled','disabled');
+			}
+			cnt++;
+		}
+	}
+  });
+});
+
