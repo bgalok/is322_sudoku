@@ -79,7 +79,7 @@ $(focus);
 $(function() {
     $(document.body).load(focus);
     $('#button1').mouseup(focus);
-		$('#button2').mouseup(focus);
+	$('#button2').mouseup(focus);
     $('#button3').mouseup(focus);
     $('#button4').mouseup(focus);
     $('#button5').mouseup(focus);
@@ -87,7 +87,10 @@ $(function() {
     $('#button7').mouseup(focus);
     $('#button8').mouseup(focus);
     $('#button9').mouseup(focus);
-		$("#Options").click(check);
+    $('#Pause').mouseup(focus);
+    $('#Notes').mouseup(focus);
+    $('#Clear').mouseup(focus);    
+	$("#Options").click(check);
 });
 $(function(){	
 	//-----------------------------------------------------------------------
@@ -151,3 +154,9 @@ $(document).ready(function(){
   });
 });
 
+function pause() {
+	$("#paused").toggle()
+	
+	//would need to stop timer when implemented
+	
+}

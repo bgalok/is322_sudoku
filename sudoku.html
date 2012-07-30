@@ -12,6 +12,7 @@
 	<div id="header">
 		<a href="#" id="Menu">Menu</a>
 	</div><!-- header -->
+	<div id="paused" style="display:none;"/></div>
 	<div id="board">
 		<div id="one">
 			<div id="A" class="border left top">
@@ -121,21 +122,21 @@
 	</div><!-- board -->
 	<div id="buttons">
 		<ul id="numbers">
-			<li><a href="#" id="button1" onmousedown="preventFocus()" onclick="changeValue(1)">1</a></li>
-			<li><a href="#" id="button2" onmousedown="preventFocus()" onclick="changeValue(2)">2</a></li>
-			<li><a href="#" id="button3" onmousedown="preventFocus()" onclick="changeValue(3)">3</a></li>
-			<li><a href="#" id="button4" onmousedown="preventFocus()" onclick="changeValue(4)">4</a></li>
-			<li><a href="#" id="button5" onmousedown="preventFocus()" onclick="changeValue(5)">5</a></li>
-			<li><a href="#" id="button6" onmousedown="preventFocus()" onclick="changeValue(6)">6</a></li>
-			<li><a href="#" id="button7" onmousedown="preventFocus()" onclick="changeValue(7)">7</a></li>
-			<li><a href="#" id="button8" onmousedown="preventFocus()" onclick="changeValue(8)">8</a></li>
-			<li><a href="#" id="button9" onmousedown="preventFocus()" onclick="changeValue(9)">9</a></li>
+			<li><a href="#" id="button1" onclick="changeValue(1)">1</a></li>
+			<li><a href="#" id="button2" onclick="changeValue(2)">2</a></li>
+			<li><a href="#" id="button3" onclick="changeValue(3)">3</a></li>
+			<li><a href="#" id="button4" onclick="changeValue(4)">4</a></li>
+			<li><a href="#" id="button5" onclick="changeValue(5)">5</a></li>
+			<li><a href="#" id="button6" onclick="changeValue(6)">6</a></li>
+			<li><a href="#" id="button7" onclick="changeValue(7)">7</a></li>
+			<li><a href="#" id="button8" onclick="changeValue(8)">8</a></li>
+			<li><a href="#" id="button9" onclick="changeValue(9)">9</a></li>
 		</ul>
 		<ul>
-			<li><a href="#" id="Pause" onmousedown="preventFocus()" onclick="">Pause</a></li>
-			<li><a href="#" id="Note" onmousedown="preventFocus()" onclick="">Note</a></li>
-			<li><a href="#" id="Clear" onmousedown="preventFocus()" onclick="changeValue()">Clear</a></li>
-			<li><a href="#" id="Options" onmousedown="preventFocus()" onclick="">More ^</a></li>
+			<li><a href="#" id="Pause" onclick="pause()">Pause</a></li>
+			<li><a href="#" id="Note" onclick="">Note</a></li>
+			<li><a href="#" id="Clear" onclick="changeValue('')">Clear</a></li>
+			<li><a href="#" id="Options" onclick="">More ^</a></li>
 		</ul>
 	</div><!-- buttons -->
   <script src='javascripts/vendor/jquery-1.3.2.js'></script>
