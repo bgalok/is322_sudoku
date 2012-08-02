@@ -183,14 +183,18 @@ $(document).ready(function(){
 		}
   });
 });
-
 function pause() {
 	//need to save current time in #Clock div (saving time in milliseconds)
 	var re=/^(?:(?:(\d+):)?(\d+):)?(\d+)$/,
       time=$("#Clock").html(),
       aMatch=re.exec(time),
-      milliseconds=1000*(3600*aMatch[1]|0)+(60*aMatch[2]|0)+(aMatch[3]|0);
+      seconds=(3600*aMatch[1]|0)+(60*aMatch[2]|0)+(aMatch[3]|0);
+			milliseconds=1000*seconds;
 
 	$("#paused").toggle();	
 	//would need to stop timer when implemented
+	
+	//this stops timer
+	clearInterval(interval);
+	//need to figure out how to resume timer
 }
