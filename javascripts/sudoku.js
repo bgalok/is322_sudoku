@@ -1,4 +1,5 @@
 var LastFocus = '#A1';
+var interval; //used for timer
 
 /*function setLastFocus() {
   var ae = document.activeElement;
@@ -56,6 +57,7 @@ function resetBoard(){
 	$("input:enabled").val("");
 }
 function check(){
+	// need to fix this function to work with JSON!!!
 	var solution = ["9", "1", "2", "7", "6", "5", "1", "9", "6", "2", "8", "4", "3", "1", "5", "7", "6", "9", "7", "1", "8", "9", "4", "6", "1", "1", "2", "6", "9"];
 	var current_vals = [];
 	$("input:enabled").each(function(){
@@ -72,14 +74,35 @@ function check(){
 			break;
 		}
 	}
-	if(status) {alert("Solved");}
+	if(status){
+		alert("Solved");
+		// also need to stop timer if correct
+	}
 	else {alert("Incorrect");}
+}
+function startTimer(time){
+	//var prev_time=time;
+	var h=time.getHours(), m=time.getMinutes(), s=time.getSeconds();
+	//var h=0, m=0, s=0;
+	interval = setInterval(function(){
+		//var value = parseInt($('#Clock').text(), 10);
+    //value++;
+		if(s > 59){ s = 0; m++;}
+		if(m > 59){ m = 0; h++;}
+	  $('#Clock').text(checkFormat(h)+":"+checkFormat(m)+":"+checkFormat(s));
+		s++;
+	},1000); //update clock every second
+}
+function checkFormat(i){
+	// adds extra zero to keep 2 digit look and feel
+	if (i<10){i="0" + i;}
+	return i;
 }
 $(focus);
 $(function() {
     $(document.body).load(focus);
     $('#button1').mouseup(focus);
-	$('#button2').mouseup(focus);
+		$('#button2').mouseup(focus);
     $('#button3').mouseup(focus);
     $('#button4').mouseup(focus);
     $('#button5').mouseup(focus);
@@ -90,7 +113,13 @@ $(function() {
     $('#Pause').mouseup(focus);
     $('#Notes').mouseup(focus);
     $('#Clear').mouseup(focus);    
-	$("#Options").click(check);
+		// just for testing for now
+		$("#Options").click(check);
+		// might need to change event handle for this
+		// when board first gets clicked timer starts
+		$("body").one("click", function() {
+  		startTimer(new Date(12,12,12,0,0,0,0)); //just for init
+		});
 });
 $(function(){	
 	//-----------------------------------------------------------------------
@@ -132,31 +161,33 @@ $(function(){
 });
 
 $(document).ready(function(){
+	
 	$.getJSON("data/boards.json", function(data){
     // Got JSON, now template it!
     var puzzleID = Math.floor(Math.random()*1);
-	var puzzle = data[puzzleID].initValues;
+		var puzzle = data[puzzleID].initValues;
 	
-	var cnt =0;
-	for(var BoxCode = 65; BoxCode <= 74; BoxCode++){
-		var Box = String.fromCharCode(BoxCode);
-		console.log(Box);
-		for(var pos=1; pos <=9 ; pos++){
-			var value = puzzle.substr(cnt,1);
-			if(value > 0 && value <10){
-			  $("#" + Box + pos).val(value);
-			  console.log("Box: " + Box + ", Pos: " + pos + ", Value: " + puzzle.substr(cnt,1));
-			  $("#" + Box + pos).attr('disabled','disabled');
+		var cnt =0;
+		for(var BoxCode = 65; BoxCode <= 74; BoxCode++){
+			var Box = String.fromCharCode(BoxCode);
+			console.log(Box);
+			for(var pos=1; pos <=9 ; pos++){
+				var value = puzzle.substr(cnt,1);
+				if(value > 0 && value <10){
+			  	$("#" + Box + pos).val(value);
+			  	console.log("Box: " + Box + ", Pos: " + pos + ", Value: " + puzzle.substr(cnt,1));
+			  	$("#" + Box + pos).attr('disabled','disabled');
+				}
+				cnt++;
 			}
-			cnt++;
 		}
-	}
   });
 });
 
 function pause() {
-	$("#paused").toggle()
-	
+	$("#paused").toggle()	
 	//would need to stop timer when implemented
+	//need to save current time in #Clock div and restore interval
+	var temp = $("#Clock").html();
 	
 }
