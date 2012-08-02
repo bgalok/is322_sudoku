@@ -94,7 +94,7 @@ function startTimer(time){
 	},1000); //update clock every second
 }
 function checkFormat(i){
-	// adds extra zero to keep 2 digit look and feel
+	// adds extra zero to keep 2 digit look and feel in timer
 	if (i<10){i="0" + i;}
 	return i;
 }
@@ -185,9 +185,12 @@ $(document).ready(function(){
 });
 
 function pause() {
-	$("#paused").toggle()	
+	//need to save current time in #Clock div (saving time in milliseconds)
+	var re=/^(?:(?:(\d+):)?(\d+):)?(\d+)$/,
+      time=$("#Clock").html(),
+      aMatch=re.exec(time),
+      milliseconds=1000*(3600*aMatch[1]|0)+(60*aMatch[2]|0)+(aMatch[3]|0);
+
+	$("#paused").toggle();	
 	//would need to stop timer when implemented
-	//need to save current time in #Clock div and restore interval
-	var temp = $("#Clock").html();
-	
 }
