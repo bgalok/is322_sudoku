@@ -167,6 +167,7 @@ $(document).ready(function(){
     var puzzleID = Math.floor(Math.random()*1);
 		var puzzle = data[puzzleID].initValues;
 	
+<<<<<<< HEAD
 		var cnt =0;
 		for(var BoxCode = 65; BoxCode <= 74; BoxCode++){
 			var Box = String.fromCharCode(BoxCode);
@@ -179,6 +180,16 @@ $(document).ready(function(){
 			  	$("#" + Box + pos).attr('disabled','disabled');
 				}
 				cnt++;
+=======
+	var cnt =0;
+	for(var row = 0; row <= 8; row++){
+		for(var col=0; col <=8 ; col++){
+			var value = puzzle.substr(cnt,1);
+			if(value > 0 && value <10){
+			  $("#" + row + col).val(value);
+			  console.log("Row: " + row + ", Column: " + col + ", Value: " + puzzle.substr(cnt,1));
+			  $("#" + row + col).attr('disabled','disabled');
+>>>>>>> fix buttons and change input id's
 			}
 		}
   });
