@@ -190,3 +190,11 @@ input:disabled {
 	-webkit-opacity: 1;
 	font-weight:800;
 }
+
+#buttons li #note.notes {
+	color: greenYellow;
+}
+
+::-webkit-input-placeholder {
+   font-size: 0.5em;
+}

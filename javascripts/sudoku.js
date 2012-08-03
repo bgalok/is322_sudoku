@@ -44,10 +44,28 @@ function removeSelected() {
 }
 
 function changeValue(value){
+
+	noteIndex = value-1;
 	//alert("set cell to: " + value);
 	$ae = $(document.activeElement);
-	$ae.val(value);
 
+	if(!$('#Note').hasClass('notes')){	
+		//console.log("if");
+		$ae.val(value);
+	}else if(value != ''){
+		//console.log("if else note before" + $notes[noteIndex]);
+		$notes = $ae.attr("placeholder");
+		if($notes[noteIndex] == " "){
+			var strNote = $notes.slice(0,noteIndex) + value + $notes.slice(value,9);
+		} else {
+			var strNote = $notes.slice(0,noteIndex) + " " + $notes.slice(value,9);
+		}	
+		//console.log("if else note after" + $notes[value-1]);
+		$ae.attr("placeholder", strNote);	
+	}else {
+		//console.log("else");
+		$ae.attr("placeholder","         ");
+	}
 } 
 
 function focus() {
@@ -187,6 +205,7 @@ $(document).ready(function(){
 	}
   });
 });
+
 function pause() {
 	//need to save current time in #Clock div (saving time in milliseconds)
 	var re=/^(?:(?:(\d+):)?(\d+):)?(\d+)$/,
@@ -203,3 +222,10 @@ function pause() {
 	//need to figure out how to resume timer
 }
 
+function toggleNotes() {
+	if($('#Note').hasClass('notes')){
+		$('#Note').removeClass('notes');
+	}else {
+		$('#Note').addClass('notes');
+	}	
+}
