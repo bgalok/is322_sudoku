@@ -18,18 +18,26 @@ function preventFocus() {
 function addSelect() {
 	$AllInputs = $('input');
 	ae = $(document.activeElement);
-	console.log("select:" + ae);
+	//console.log("select:" + ae);
 	//$AllInputs.removeClass('selected');
 	//$SelectedInput = $AllInputs.filter(ae);
-	//$SelectedInput.addClass('selected');	
+	//$SelectedInput.addClass('selected');
+	var row, col, box;
+	row = ae.attr("id").slice(0,1);
+	col = ae.attr("id").slice(-1);
+	Box = ae.parent().attr("id");
+	
+	$Relevant = $('[id^="' + row + '"],[id$="' + col + '"],div.#' + Box + ' input');	
+	
 	ae.addClass('selected');
+	$Relevant.addClass('relevant');
 }
 
 function removeSelected() {
 	$AllInputs = $('input');
 	ae = $(document.activeElement);
 	console.log("remove:" + ae);
-	$AllInputs.removeClass('selected');
+	$AllInputs.removeClass('selected relevant');
 	//$SelectedInput = $AllInputs.filter(ae);
 	//$SelectedInput.addClass('selected');	
 	//ae.addClass('selected');
@@ -102,7 +110,7 @@ $(focus);
 $(function() {
     $(document.body).load(focus);
     $('#button1').mouseup(focus);
-		$('#button2').mouseup(focus);
+	$('#button2').mouseup(focus);
     $('#button3').mouseup(focus);
     $('#button4').mouseup(focus);
     $('#button5').mouseup(focus);
@@ -113,13 +121,6 @@ $(function() {
     $('#Pause').mouseup(focus);
     $('#Notes').mouseup(focus);
     $('#Clear').mouseup(focus);    
-<<<<<<< HEAD
-		// just for testing for now
-=======
-
-	
-			// just for testing for now
->>>>>>> js file conflicts
 		$("#Options").click(check);
 		// might need to change event handle for this
 		// when board first gets clicked timer starts
@@ -167,26 +168,11 @@ $(function(){
 });
 
 $(document).ready(function(){
-	
 	$.getJSON("data/boards.json", function(data){
     // Got JSON, now template it!
     var puzzleID = Math.floor(Math.random()*1);
-		var puzzle = data[puzzleID].initValues;
+	var puzzle = data[puzzleID].initValues;
 	
-<<<<<<< HEAD
-		var cnt =0;
-		for(var BoxCode = 65; BoxCode <= 74; BoxCode++){
-			var Box = String.fromCharCode(BoxCode);
-			console.log(Box);
-			for(var pos=1; pos <=9 ; pos++){
-				var value = puzzle.substr(cnt,1);
-				if(value > 0 && value <10){
-			  	$("#" + Box + pos).val(value);
-			  	console.log("Box: " + Box + ", Pos: " + pos + ", Value: " + puzzle.substr(cnt,1));
-			  	$("#" + Box + pos).attr('disabled','disabled');
-				}
-				cnt++;
-=======
 	var cnt =0;
 	for(var row = 0; row <= 8; row++){
 		for(var col=0; col <=8 ; col++){
@@ -195,9 +181,10 @@ $(document).ready(function(){
 			  $("#" + row + col).val(value);
 			  console.log("Row: " + row + ", Column: " + col + ", Value: " + puzzle.substr(cnt,1));
 			  $("#" + row + col).attr('disabled','disabled');
->>>>>>> fix buttons and change input id's
 			}
+			cnt++;
 		}
+	}
   });
 });
 function pause() {
@@ -210,16 +197,9 @@ function pause() {
 
 	$("#paused").toggle();	
 	//would need to stop timer when implemented
-<<<<<<< HEAD
 	
 	//this stops timer
 	clearInterval(interval);
 	//need to figure out how to resume timer
 }
-=======
 
-	//this stops timer
-	clearInterval(interval);
-	//need to figure out how to resume timer
-}
->>>>>>> js file conflicts
