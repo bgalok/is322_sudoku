@@ -24,14 +24,14 @@ input {
     width: 33.333%;
     height:34.333%;
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-weight: 800;
+    font-weight: 600;
     font-size: 1.8em;
     text-align: center;
     vertical-align: middle;
     line-height: normal;
     overflow: visible;
     display: inline-block;
-    border: 1px solid rgb(204, 204, 204);
+    border: 1px solid rgb(128, 128, 128);
     border-radius: 10px;
 /*    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1) inset; */
     margin: 0px;
@@ -75,6 +75,11 @@ body{
 	height:75%;
 	background-color: ghostwhite;
 }
+
+#board>div {
+	background-color: darkGray;
+}
+
 
 #paused {
 
@@ -168,19 +173,20 @@ ul {
 }
 
 
-.selected {
-/*	background-color: #BADA55; */
+input.selected {
+	background-color: cyan;
 	border: 2px solid gold;
 	margin: 0px;
 }
 
-.relevant {
-	background-color: #BADA55;
+.relevant{
+	background-color: rgba(255,170,170,0.9);
+	
 }
 
 input:disabled {
 	color:black;
 	-webkit-text-fill-color:black;
 	-webkit-opacity: 1;
-	background-color:lightslategray;
+	font-weight:800;
 }
