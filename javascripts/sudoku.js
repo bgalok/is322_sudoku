@@ -113,7 +113,13 @@ $(function() {
     $('#Pause').mouseup(focus);
     $('#Notes').mouseup(focus);
     $('#Clear').mouseup(focus);    
+<<<<<<< HEAD
 		// just for testing for now
+=======
+
+	
+			// just for testing for now
+>>>>>>> js file conflicts
 		$("#Options").click(check);
 		// might need to change event handle for this
 		// when board first gets clicked timer starts
@@ -204,8 +210,16 @@ function pause() {
 
 	$("#paused").toggle();	
 	//would need to stop timer when implemented
+<<<<<<< HEAD
 	
 	//this stops timer
 	clearInterval(interval);
 	//need to figure out how to resume timer
 }
+=======
+
+	//this stops timer
+	clearInterval(interval);
+	//need to figure out how to resume timer
+}
+>>>>>>> js file conflicts
