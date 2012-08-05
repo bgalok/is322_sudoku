@@ -114,25 +114,33 @@ function getBoardState(){
 	});*/
 }
 function resetBoard(){
-	$("input:enabled").val("");
+	//$("input:enabled").val("");
+	//
 }
 function check(){
-	// need to fix this function to work with JSON!!!
-	var solution = puzzle.solution;
+	// need to fix do that solution is array; not string 
+	var temp = puzzle.solution;
+	var solution = temp.split("");
 	//var solution = ["9", "1", "2", "7", "6", "5", "1", "9", "6", "2", "8", "4", "3", "1", "5", "7", "6", "9", "7", "1", "8", "9", "4", "6", "1", "1", "2", "6", "9"];
-	var current_vals = [];
-	$("input:enabled").each(function(){
-  	current_vals.push($(this).val());
-  });
+	//var current_vals = [];
+	//$("input:enabled").each(function(){
+  //	current_vals.push($(this).val());
+  //});
 	var status=true;
+	//for(i=0; i<solution.length; i++){
 	i=0;
-	for(i=0; i<solution.length; i++){
-		if(solution[i]==current_vals[i]){
-			status=true;
-		}
-		else{
-			status=false;
-			break;
+	for(var row = 0; row <= 8; row++){
+		for(var col = 0; col <= 8; col++){
+			//if(solution[i]==current_vals[i]){
+			if(solution[i]==$("#" + row + col).val()){	
+				status=true;
+				i++;
+			}
+			else{
+				status=false;
+				i++;
+				break;
+			}
 		}
 	}
 	if(status){
