@@ -23,16 +23,17 @@ $("#typeMenu a").click(function(e){
     //console.log("Type: " + Type +  " Data: " + data[Type][0].initValues);
  debug = data;
     var puzzleID = Math.floor(Math.random()*data[Type].length);
-	puzzle = data[Type][puzzleID].initValues;
-	console.log(data[Type].length);
+	puzzle = data[Type][puzzleID];
+	initValues = puzzle.solution;
+	//console.log(data[Type].length);
 	var cnt =0;
 	for(var row = 0; row <= 8; row++){
 		for(var col=0; col <=8 ; col++){
-			var value = puzzle.substr(cnt,1);
+			var value = initValues.substr(cnt,1);
 			if(value > 0 && value <10){
 			  $("#" + row + col).val(value);
-			  console.log("Row: " + row + ", Column: " + col + ", Value: " + puzzle.substr(cnt,1));
-			  $("#" + row + col).attr('disabled','disabled');
+			  //console.log("Row: " + row + ", Column: " + col + ", Value: " + initValues.substr(cnt,1));
+			 // $("#" + row + col).attr('disabled','disabled');
 			}
 			cnt++;
 		}
@@ -117,7 +118,7 @@ function resetBoard(){
 }
 function check(){
 	// need to fix this function to work with JSON!!!
-	var solution = puzzle;
+	var solution = puzzle.solution;
 	//var solution = ["9", "1", "2", "7", "6", "5", "1", "9", "6", "2", "8", "4", "3", "1", "5", "7", "6", "9", "7", "1", "8", "9", "4", "6", "1", "1", "2", "6", "9"];
 	var current_vals = [];
 	$("input:enabled").each(function(){
