@@ -51,20 +51,25 @@ body{
 	height: 4%;
 }
 
-#header a {
+#header * {
 	background-image: -webkit-linear-gradient(#353535, #212021 55%, #090809 55.1%, #050405);
 	text-align: center;
 	line-height: 2em;
 	color: white;
+    font-weight: bold;
+    padding: 0.4em 0.6em 0.5em 0.6em;
+}
+
+#header a {
 	border: 1px solid #5A5A5A;
     -webkit-box-shadow: rgba(73, 73, 73, 0.4) -2px -2px 2px 2px inset;
     -webkit-border-radius: 0.5em;
     text-shadow:rgba(0, 0, 0, 1) 3px -1px 0px;	
-    font-weight: bold;
     letter-spacing: 0;
-    padding: 0.4em 0.6em 0.5em 0.6em;
+    padding: 0.2em 0.5em 0.2em 0.5em;
     text-decoration: none;
     text-transform: none;
+    position: absolute;
 }
 
 .cssgradients #header {
@@ -89,7 +94,7 @@ body{
 	opacity: 0.95;
 	z-index: 500;
 	right: 0;
-	top:4%;
+	top: 6.5%;
 	left: 0;
 	bottom: 0;
 	position:absolute;
@@ -148,9 +153,9 @@ div {
 	width: 100%;
 	height: 100%;
 	padding: 0;
-	margin: 0.2em;
+	margin: 0.15em;
 	text-align: center;
-	line-height: 2em;
+	line-height: 1.3em;
 	color: white;
 	text-decoration: none;
 	background-color: gray;
@@ -158,7 +163,8 @@ div {
 	border-radius: 10px;
     -webkit-box-shadow: rgba(73, 73, 73, 0.4) -2px -2px 2px 2px inset;
     -webkit-border-radius: 0.5em;
-    text-shadow:rgba(0, 0, 0, 1) 3px -1px 0px;
+    text-shadow:rgba(0, 0, 0, 1) 1px -1px 0px;
+    font-size:1.5em;
 }
 
 ul {
@@ -172,6 +178,25 @@ ul {
 	font-size: 1.2em;
 }
 
+div[id$="Menu"] ul {
+	width: 300px;
+	height: 50px;
+	top: 35%;
+	left: 50%;
+	margin-left: -150px;
+	position: absolute;
+}
+
+#typeMenu li, #mainMenu li {
+	margin: 0 0 0 1%;
+	display:initial;
+	text-align: center;	
+}
+
+div[id$="Menu"] li a{
+	vertical-align:baseline;
+	line-height: 1.1em;	
+}
 
 input.selected {
 	background-color: cyan;
@@ -192,9 +217,31 @@ input:disabled {
 }
 
 #buttons li #note.notes {
-	color: greenYellow;
+	color: green;
+	border-color: white;
+	text-shadow: rgba(255, 255, 255, 1) 1px -1px 0px;
+	background-color: greenYellow;
 }
 
 ::-webkit-input-placeholder {
-   font-size: 0.5em;
+	font-size: 0.4em;
+	font-weight:800;
+	color:green;
 }
+
+#Clock {
+/*	float:right; */
+	right: 0;
+	top: 0;
+}
+
+#wrapper, #typeMenu {
+	height: 100%;
+	width: 100%;
+	display: none;
+}
+
+div#wrapper.current, div#typeMenu.current {
+	display:block;
+}
+

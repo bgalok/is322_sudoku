@@ -1,5 +1,7 @@
 var LastFocus = '#A1';
+var Type ='easy';//used for puzzle type-difficulty
 var interval; //used for timer
+var puzzle; 
 
 /*function setLastFocus() {
   var ae = document.activeElement;
@@ -7,6 +9,37 @@ var interval; //used for timer
 	LastFocus = "#" + ae.id;
 	console.log(LastFocus);
 }*/
+
+$("#typeMenu a").click(function(e){
+  e.preventDefault();
+  
+  console.log($(e.target).text());
+	Type = $(e.target).text();
+    $('#wrapper').addClass('current').fadeIn();
+    $('#typeMenu').fadeOut().removeClass('current');
+    
+    $.getJSON("data/boards.json", function(data){
+    // Got JSON, now template it!
+    //console.log("Type: " + Type +  " Data: " + data[Type][0].initValues);
+ debug = data;
+    var puzzleID = Math.floor(Math.random()*data[Type].length);
+	puzzle = data[Type][puzzleID].initValues;
+	console.log(data[Type].length);
+	var cnt =0;
+	for(var row = 0; row <= 8; row++){
+		for(var col=0; col <=8 ; col++){
+			var value = puzzle.substr(cnt,1);
+			if(value > 0 && value <10){
+			  $("#" + row + col).val(value);
+			  console.log("Row: " + row + ", Column: " + col + ", Value: " + puzzle.substr(cnt,1));
+			  $("#" + row + col).attr('disabled','disabled');
+			}
+			cnt++;
+		}
+	}
+  });
+    		startTimer(new Date(12,12,12,0,0,0,0)); //just for init
+});
 
 function preventFocus() {
   LastFocus = "#" + document.activeElement.id;
@@ -84,7 +117,8 @@ function resetBoard(){
 }
 function check(){
 	// need to fix this function to work with JSON!!!
-	var solution = ["9", "1", "2", "7", "6", "5", "1", "9", "6", "2", "8", "4", "3", "1", "5", "7", "6", "9", "7", "1", "8", "9", "4", "6", "1", "1", "2", "6", "9"];
+	var solution = puzzle;
+	//var solution = ["9", "1", "2", "7", "6", "5", "1", "9", "6", "2", "8", "4", "3", "1", "5", "7", "6", "9", "7", "1", "8", "9", "4", "6", "1", "1", "2", "6", "9"];
 	var current_vals = [];
 	$("input:enabled").each(function(){
   	current_vals.push($(this).val());
@@ -119,6 +153,19 @@ function startTimer(time){
 		s++;
 	},1000); //update clock every second
 }
+function restartTimer(time){
+	var totSec=time/1000;
+	var h=Math.floor(totSec/3600), m=Math.floor((totSec-(h*3600))/60), s=totSec%60;
+	//var h=0, m=0, s=0;
+	interval = setInterval(function(){
+		//var value = parseInt($('#Clock').text(), 10);
+    //value++;
+		if(s > 59){ s = 0; m++;}
+		if(m > 59){ m = 0; h++;}
+	  $('#Clock').text(checkFormat(h)+":"+checkFormat(m)+":"+checkFormat(s));
+		s++;
+	},1000); //update clock every second
+}
 function checkFormat(i){
 	// adds extra zero to keep 2 digit look and feel in timer
 	if (i<10){i="0" + i;}
@@ -142,9 +189,9 @@ $(function() {
 		$("#Options").click(check);
 		// might need to change event handle for this
 		// when board first gets clicked timer starts
-		$("body").one("click", function() {
+		/*$("body").one("click", function() {
   		startTimer(new Date(12,12,12,0,0,0,0)); //just for init
-		});
+		});*/
 });
 $(function(){	
 	//-----------------------------------------------------------------------
@@ -186,24 +233,7 @@ $(function(){
 });
 
 $(document).ready(function(){
-	$.getJSON("data/boards.json", function(data){
-    // Got JSON, now template it!
-    var puzzleID = Math.floor(Math.random()*1);
-	var puzzle = data[puzzleID].initValues;
-	
-	var cnt =0;
-	for(var row = 0; row <= 8; row++){
-		for(var col=0; col <=8 ; col++){
-			var value = puzzle.substr(cnt,1);
-			if(value > 0 && value <10){
-			  $("#" + row + col).val(value);
-			  console.log("Row: " + row + ", Column: " + col + ", Value: " + puzzle.substr(cnt,1));
-			  $("#" + row + col).attr('disabled','disabled');
-			}
-			cnt++;
-		}
-	}
-  });
+
 });
 
 function pause() {
@@ -216,10 +246,15 @@ function pause() {
 
 	$("#paused").toggle();	
 	//would need to stop timer when implemented
-	
+	if($('#paused').is(":visible")){
 	//this stops timer
+	console.log("True");
 	clearInterval(interval);
+	} else {
 	//need to figure out how to resume timer
+		console.log("False");
+		restartTimer(milliseconds);
+	}
 }
 
 function toggleNotes() {
