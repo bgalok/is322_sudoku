@@ -231,9 +231,14 @@ $(function(){
         if (diffTime > 500) {
           //confirm("Reset the Board?");
 					//var r=confirm("Press a button!");
-					if(confirm("Reset the current Board?")){
-  					resetBoard();
-  				}
+					var rep = confirm("Start a new game?");
+    			if(rep){
+      			// if ok is pressed then redirect to difficulty page
+      			window.location.replace("index.html");
+   	 			}
+    			// also need to stop timer if correct
+    			clearInterval(interval);
+
           //$("#status").html("Skaken!");
           lastShake = now;
         }
