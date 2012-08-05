@@ -114,8 +114,7 @@ function getBoardState(){
 	});*/
 }
 function resetBoard(){
-	//$("input:enabled").val("");
-	//
+	$("input:enabled").val("");
 }
 function check(){
 	// need to fix do that solution is array; not string 
@@ -144,8 +143,13 @@ function check(){
 		}
 	}
 	if(status){
-		alert("Solved");
+		var rep = confirm("Congratulations! You solved it!\nStart a new game?");
+		if(rep){
+			// if ok is pressed then redirect to difficulty page
+			window.location.replace("index.html");
+		}
 		// also need to stop timer if correct
+		clearInterval(interval);
 	}
 	else {alert("Incorrect");}
 }
