@@ -24,7 +24,7 @@ $("#typeMenu a").click(function(e){
  debug = data;
     var puzzleID = Math.floor(Math.random()*data[Type].length);
 	puzzle = data[Type][puzzleID];
-	initValues = puzzle.solution;
+	initValues = puzzle.initValues;
 	//console.log(data[Type].length);
 	var cnt =0;
 	for(var row = 0; row <= 8; row++){
