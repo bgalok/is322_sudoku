@@ -120,110 +120,43 @@ function getBoardState(){
 function resetBoard(){
 	$("input:enabled").val("");
 }
-
-function check(){
-<<<<<<< HEAD
-	// need to fix do that solution is array; not string 
-	var temp = puzzle.solution;
-	var solution = temp.split("");
-	//var solution = ["9", "1", "2", "7", "6", "5", "1", "9", "6", "2", "8", "4", "3", "1", "5", "7", "6", "9", "7", "1", "8", "9", "4", "6", "1", "1", "2", "6", "9"];
-	//var current_vals = [];
-	//$("input:enabled").each(function(){
-  //	current_vals.push($(this).val());
-  //});
-=======
-	if(!completed) {
-		// need to fix this function to work with JSON!!!
-		var solution = puzzle.solution;
-		//var solution = ["9", "1", "2", "7", "6", "5", "1", "9", "6", "2", "8", "4", "3", "1", "5", "7", "6", "9", "7", "1", "8", "9", "4", "6", "1", "1", "2", "6", "9"];
-		var current_vals = '';
-	
-		for(var row = 0; row <= 8; row++){
-			for(var col=0; col <=8 ; col++){
-				var crntVal = $("#" + row + col).val();
-				if(crntVal)
-					current_vals +=  $("#" + row + col).val();
-				else
-					current_vals += " ";
-			}
-		}
-		console.log(current_vals);
-		
-		var status=true;
-		var correct = wrong = blank =0;
-		for(var i=0; i<solution.length; i++){
-			if(solution[i]==current_vals[i]){
-				correct++;	
-			}
-			else if(!current_vals[i] || current_vals[i] == ' '){
-				blank++;
-			}else{
-			//	console.log('value: ' + current_vals[i]);
-				status=false;
-				wrong++;
-			}
-		}
-		if(status){
-		
-		//change to navigator for phonegap app
-			alert("Only " + blank + " cells left to finish!");
-		//	navigator.notification.alert("Only " + blank + " cells left to finish!", ,"Puzzle is Valid.","OK");
-		}
-		else {
-		//change to navigator for phonegap app
-			alert("Incorrect: " + wrong + ", Blank: " + blank);
-		//	navigator.notification.alert("Incorrect: " + wrong + ", Blank: " + blank, ,"Incorrect!!","Keep Trying!");
-		}
-	}
-}
-
 function solve(){
-	// need to fix this function to work with JSON!!!
-	var solution = puzzle.solution;
-	//var solution = ["9", "1", "2", "7", "6", "5", "1", "9", "6", "2", "8", "4", "3", "1", "5", "7", "6", "9", "7", "1", "8", "9", "4", "6", "1", "1", "2", "6", "9"];
-	var current_vals = '';
-
-  
-	for(var row = 0; row <= 8; row++){
-		for(var col=0; col <=8 ; col++){
-			current_vals +=  $("#" + row + col).val();
-		}
-	}
- 
->>>>>>> Change Check and Auto check for solve
-	var status=true;
-	//for(i=0; i<solution.length; i++){
-	i=0;
-	for(var row = 0; row <= 8; row++){
-		for(var col = 0; col <= 8; col++){
-			//if(solution[i]==current_vals[i]){
-			if(solution[i]==$("#" + row + col).val()){	
-				status=true;
-				i++;
-			}
-			else{
-				status=false;
-				i++;
-				break;
-			}
-		}
-	}
-	if(status){
-<<<<<<< HEAD
-		var rep = confirm("Congratulations! You solved it!\nStart a new game?");
-		if(rep){
-			// if ok is pressed then redirect to difficulty page
-			window.location.replace("index.html");
-		}
-=======
-		clearInterval(interval);
-		alert("Completed time: " + $('#Clock').text());
-		completed = true;
->>>>>>> Change Check and Auto check for solve
-		// also need to stop timer if correct
-		clearInterval(interval);
-	}
-
+// need to fix do that solution is array; not string
+var temp = puzzle.solution;
+var solution = temp.split("");
+//var solution = ["9", "1", "2", "7", "6", "5", "1", "9", "6", "2", "8", "4", "3", "1", "5", "7", "6", "9", "7", "1", "8", "9", "4", "6", "1", "1", "2", "6", "9"];
+//var current_vals = [];
+//$("input:enabled").each(function(){
+  // current_vals.push($(this).val());
+  //});
+var status=true;
+//for(i=0; i<solution.length; i++){
+i=0;
+for(var row = 0; row <= 8; row++){
+for(var col = 0; col <= 8; col++){
+//if(solution[i]==current_vals[i]){
+if(solution[i]==$("#" + row + col).val()){	
+status=true;
+i++;
+}
+else{
+status=false;
+i++;
+break;
+}
+}
+}
+if(status){
+// also need to stop timer if correct
+clearInterval(interval);
+var rep = confirm("Congratulations! You solved it in: " + $('#Clock').text() + "!\nStart a new game?");
+if(rep){
+// if ok is pressed then redirect to difficulty page
+window.location.replace("index.html");
+}else {
+	completed = true;
+}
+}
 }
 
 function startTimer(time){
@@ -303,14 +236,14 @@ $(function(){
             diffTime = now - lastShake;
         if (diffTime > 500) {
           //confirm("Reset the Board?");
-					//var r=confirm("Press a button!");
-					var rep = confirm("Start a new game?");
-    			if(rep){
-      			// if ok is pressed then redirect to difficulty page
-      			window.location.replace("index.html");
-   	 			}
-    			// also need to stop timer if correct
-    			clearInterval(interval);
+//var r=confirm("Press a button!");
+var rep = confirm("Start a new game?");
+     if(rep){
+       // if ok is pressed then redirect to difficulty page
+       window.location.replace("index.html");
+    }
+     // also need to stop timer if correct
+     clearInterval(interval);
 
           //$("#status").html("Skaken!");
           lastShake = now;
@@ -355,4 +288,50 @@ function toggleNotes() {
 	}else {
 		$('#Note').addClass('notes');
 	}	
+}
+
+function check(){
+	if(!completed) {
+		// need to fix this function to work with JSON!!!
+		var solution = puzzle.solution;
+		//var solution = ["9", "1", "2", "7", "6", "5", "1", "9", "6", "2", "8", "4", "3", "1", "5", "7", "6", "9", "7", "1", "8", "9", "4", "6", "1", "1", "2", "6", "9"];
+		var current_vals = '';
+	
+		for(var row = 0; row <= 8; row++){
+			for(var col=0; col <=8 ; col++){
+				var crntVal = $("#" + row + col).val();
+				if(crntVal)
+					current_vals +=  $("#" + row + col).val();
+				else
+					current_vals += " ";
+			}
+		}
+		console.log(current_vals);
+		
+		var status=true;
+		var correct = wrong = blank =0;
+		for(var i=0; i<solution.length; i++){
+			if(solution[i]==current_vals[i]){
+				correct++;	
+			}
+			else if(!current_vals[i] || current_vals[i] == ' '){
+				blank++;
+			}else{
+			//	console.log('value: ' + current_vals[i]);
+				status=false;
+				wrong++;
+			}
+		}
+		if(status){
+		
+		//change to navigator for phonegap app
+			alert("Only " + blank + " cells left to finish!");
+		//	navigator.notification.alert("Only " + blank + " cells left to finish!", ,"Puzzle is Valid.","OK");
+		}
+		else {
+		//change to navigator for phonegap app
+			alert("Incorrect: " + wrong + ", Blank: " + blank);
+		//	navigator.notification.alert("Incorrect: " + wrong + ", Blank: " + blank, ,"Incorrect!!","Keep Trying!");
+		}
+	}
 }
